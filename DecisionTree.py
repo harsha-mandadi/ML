@@ -143,23 +143,10 @@ y_pred = clf.predict(X_test)
 # Evaluation
 accuracy = f1_score(y_test, y_pred)
 print(accuracy)
-# modelcomplex(X_train, y_train, feature="max_depth",
-#             paramrange=np.arange(3, 25, 1))
+modelcomplex(X_train, y_train, feature="max_depth",
+            paramrange=np.arange(3, 25, 1))
+modelcomplex(X_train, y_train, feature="min_samples_leaf",
+            paramrange=np.arange(3, 25, 1))
+modelcomplex(X_train, y_train, feature="max_leaf_nodes",
+            paramrange=np.arange(3, 25, 1))
 learningcurve(clf, X_train, y_train, "f1")
-# f1 score
-# f1score = f1_score(y_test, y_pred)
-# AUC ROC
-# auc = roc_auc_score(y_test, y_pred)
-# ROC -
-# roc = roc_curve(y_test, y_pred)
-# graph
-# plt.figure(figsize=(20, 10))
-# tree.plot_tree(clf, filled=True, fontsize=10)
-# plt.show()
-# plt.close()
-
-# learning curve
-# Create CV training and test scores for various training set sizes
-# print(len(X))
-# print(sum(y))
-# ROC curve
