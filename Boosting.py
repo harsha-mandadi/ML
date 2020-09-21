@@ -14,8 +14,7 @@ def dataset_selection(type):
     if type == 1:
         df = pd.read_csv('Dataset/transfusion.data',
                          sep=",", header=0)
-        # df.columns = ["Pregnancies", "Glucose", "BloddPressure", "SkinThickness",
-        # "Insulin", "BMI", "DiabetesPedigreeFunction", "Age", "Outcome"]
+        
         df.columns = ["a", "b", "c", "d", "out"]
         X = df.values[:, 0: 4]
         # print(X[1: 11])
@@ -25,8 +24,7 @@ def dataset_selection(type):
         print(len(X))
 
         print(sum(y))
-        # X_train, X_val, y_train, y_val = train_test_split(
-        # X_train, y_train, test_size=0.25, random_state=1, shuffle=True)
+        
     else:
         # Checking for missing data
         # NAs = pd.concat([df.isnull().sum()], axis=1, keys=[‘Train’])
@@ -141,6 +139,8 @@ accuracy = accuracy_score(y_test, y_pred)
 print(accuracy)
 print(classification_report(y_test, y_pred))
 print(confusion_matrix(y_test, y_pred))
-# modelcomplex(X_train, y_train, feature="n_estimators",
-#             paramrange=np.arange(1, 80, 5))
+modelcomplex(X_train, y_train, feature="n_estimators",
+             paramrange=np.arange(1, 80, 5))
+modelcomplex(X_train, y_train, feature="learning_rate",
+             paramrange=np.arange(1, 80, 5))
 learningcurve(mlp, X_train, y_train, "f1")
